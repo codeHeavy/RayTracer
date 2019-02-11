@@ -7,9 +7,9 @@ class vec3
 {
 public:
 	float vec[3];
-	vec3();
+	vec3() {};
 	vec3(float x, float y, float z) { vec[0] = x; vec[1] = y; vec[2] = z; };
-	~vec3();
+	~vec3() {};
 
 	inline float x() const { return vec[0]; }
 	inline float y() const { return vec[1]; }
@@ -35,9 +35,9 @@ public:
 
 
 
-	inline float length() const { return sqrt(vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]); }
-	inline float squared_length() const { return vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]; }
-	inline void make_unit_vector();
+	inline float Length() const { return sqrt(vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]); }
+	inline float SquaredLength() const { return vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]; }
+	inline void MakeUnitVector();
 
 };
 
@@ -58,7 +58,7 @@ inline std::ostream& operator<<(std::ostream &os, const vec3 &t)
 
 
 
-inline void vec3::make_unit_vector()
+inline void vec3::MakeUnitVector()
 {
 	float k = 1.0 / sqrt(vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2]);
 	vec[0] *= k; vec[1] *= k; vec[2] *= k;
@@ -200,7 +200,7 @@ inline vec3& vec3::operator/=(const float t)
 
 
 
-inline vec3 unit_vector(vec3 v)
+inline vec3 UnitVector(vec3 v)
 {
-	return v / v.length();
+	return v / v.Length();
 }
